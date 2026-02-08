@@ -284,6 +284,83 @@
             font-size: 0.9rem;
         }
 
+        /* Form */
+        .memory-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            color: #c4a478;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input[type="text"],
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            background: rgba(196, 164, 120, 0.06);
+            border: 1px solid rgba(196, 164, 120, 0.25);
+            border-radius: 6px;
+            color: #e8e0d8;
+            font-family: 'Lato', sans-serif;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group textarea:focus {
+            border-color: #c4a478;
+        }
+
+        .form-group input[type="text"]::placeholder,
+        .form-group textarea::placeholder {
+            color: #7a7068;
+        }
+
+        .form-group input[type="file"] {
+            color: #a89880;
+            font-size: 0.95rem;
+        }
+
+        .form-group input[type="file"]::file-selector-button {
+            padding: 0.5rem 1rem;
+            background: rgba(196, 164, 120, 0.15);
+            border: 1px solid rgba(196, 164, 120, 0.3);
+            border-radius: 4px;
+            color: #c4a478;
+            cursor: pointer;
+            font-family: 'Lato', sans-serif;
+            margin-right: 0.75rem;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: rgba(196, 164, 120, 0.15);
+            border: 1px solid rgba(196, 164, 120, 0.4);
+            border-radius: 6px;
+            color: #c4a478;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: rgba(196, 164, 120, 0.25);
+            border-color: #c4a478;
+        }
+
         /* Responsive */
         @media (max-width: 600px) {
             .section { padding: 3rem 1.5rem; }
@@ -417,6 +494,40 @@
             </div>
             <!-- More photos will be added -->
         </div>
+    </section>
+
+    <!-- Share a Memory -->
+    <section class="section">
+        <h2>Share a Memory</h2>
+        <div class="section-divider"></div>
+        <p style="text-align: center; margin-bottom: 2rem;">
+            If Jerry and Gloria touched your life, we'd love to hear from you. Share a story, a memory, or a photo — everything helps us celebrate the lives they lived.
+        </p>
+        <form action="https://formsubmit.co/codeClaude08@gmail.com" method="POST" enctype="multipart/form-data" class="memory-form">
+            <!-- Anti-spam -->
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_subject" value="Rhodes Memorial — New Memory Shared">
+            <input type="hidden" name="_template" value="table">
+            <input type="text" name="_honey" style="display:none">
+            
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+                <label for="relationship">How did you know Jerry & Gloria?</label>
+                <input type="text" id="relationship" name="relationship" placeholder="Family, friend, neighbor, customer...">
+            </div>
+            <div class="form-group">
+                <label for="memory">Your Memory or Story</label>
+                <textarea id="memory" name="memory" rows="6" placeholder="Share a favorite memory, a funny story, or just what they meant to you..." required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="photo">Upload a Photo (optional)</label>
+                <input type="file" id="photo" name="attachment" accept="image/*">
+            </div>
+            <button type="submit" class="submit-btn">Share This Memory</button>
+        </form>
     </section>
 
     <!-- Quote -->
