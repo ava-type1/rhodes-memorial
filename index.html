@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>In Loving Memory — Jerry & Gloria Rhodes</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: #0a0a0a;
+            color: #e8e0d8;
+            min-height: 100vh;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(180deg, #0a0a0a 0%, #1a1510 50%, #0a0a0a 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(196, 164, 120, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .ornament {
+            font-size: 2rem;
+            color: #c4a478;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.5rem;
+            opacity: 0.6;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 400;
+            color: #f5efe8;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero h1 .ampersand {
+            font-style: italic;
+            color: #c4a478;
+            font-size: 0.8em;
+        }
+
+        .dates {
+            font-family: 'Lato', sans-serif;
+            font-weight: 300;
+            font-size: 1.1rem;
+            color: #a89880;
+            letter-spacing: 0.15rem;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .in-memoriam {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #c4a478;
+            margin-bottom: 3rem;
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 2rem;
+            animation: float 3s ease-in-out infinite;
+            opacity: 0.4;
+            font-size: 1.5rem;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+        }
+
+        /* Photo placeholder */
+        .photo-frame {
+            width: 280px;
+            height: 320px;
+            border: 1px solid rgba(196, 164, 120, 0.3);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem auto;
+            background: rgba(196, 164, 120, 0.05);
+            position: relative;
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .photo-placeholder {
+            color: #a89880;
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+
+        /* Sections */
+        .section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            color: #f5efe8;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-divider {
+            width: 60px;
+            height: 1px;
+            background: #c4a478;
+            margin: 1rem auto 2.5rem;
+        }
+
+        .section p {
+            font-weight: 300;
+            line-height: 1.9;
+            font-size: 1.05rem;
+            color: #d4ccc4;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Life Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+            margin: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: linear-gradient(to bottom, transparent, #c4a478, transparent);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.35rem;
+            top: 0.5rem;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #c4a478;
+        }
+
+        .timeline-year {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: #c4a478;
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-text {
+            font-weight: 300;
+            color: #d4ccc4;
+            line-height: 1.7;
+        }
+
+        /* Restaurant Section */
+        .restaurant-card {
+            background: rgba(196, 164, 120, 0.06);
+            border: 1px solid rgba(196, 164, 120, 0.15);
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .restaurant-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: #f5efe8;
+            margin-bottom: 0.5rem;
+        }
+
+        .restaurant-card .location {
+            color: #c4a478;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .restaurant-card p {
+            font-weight: 300;
+            color: #d4ccc4;
+            line-height: 1.7;
+        }
+
+        /* Photo Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .gallery-item {
+            aspect-ratio: 4/3;
+            border: 1px solid rgba(196, 164, 120, 0.2);
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(196, 164, 120, 0.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Quote */
+        .quote {
+            text-align: center;
+            padding: 3rem 2rem;
+            margin: 2rem 0;
+        }
+
+        .quote blockquote {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.5rem;
+            color: #c4a478;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        .memorial-footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            border-top: 1px solid rgba(196, 164, 120, 0.1);
+        }
+
+        .memorial-footer .ornament {
+            margin-bottom: 1rem;
+        }
+
+        .memorial-footer p {
+            font-weight: 300;
+            color: #a89880;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .section { padding: 3rem 1.5rem; }
+            .photo-frame { width: 220px; height: 260px; }
+            .gallery { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="ornament">✦ ✦ ✦</div>
+        <h1>Jerry <span class="ampersand">&</span> Gloria Rhodes</h1>
+        <div class="dates">
+            July 3, 1946 — February 7, 2026 &nbsp;&nbsp;·&nbsp;&nbsp; January 16, 1945 — February 8, 2026
+        </div>
+        <p class="in-memoriam">Together in life. Together forever.</p>
+        <div class="photo-frame">
+            <span class="photo-placeholder">Photo coming soon</span>
+        </div>
+        <div class="scroll-hint">↓</div>
+    </section>
+
+    <!-- Their Story -->
+    <section class="section">
+        <h2>Their Story</h2>
+        <div class="section-divider"></div>
+        <p>
+            Jerry and Gloria Rhodes built a life rooted in family, hard work, and the tight-knit communities
+            of rural North Florida. From Lake Butler to Mayo, they were the kind of people who fed their neighbors —
+            literally — and left an indelible mark on everyone they met.
+        </p>
+        <p>
+            They departed this world just one day apart — Jerry on February 7, 2026, and Gloria on February 8, 2026 —
+            a testament to a bond so deep that even in passing, they couldn't bear to be separated.
+        </p>
+    </section>
+
+    <!-- Life Timeline -->
+    <section class="section">
+        <h2>A Life Together</h2>
+        <div class="section-divider"></div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-year">1945</div>
+                <div class="timeline-text">Gloria was born on January 16 in Florida.</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">1946</div>
+                <div class="timeline-text">Jerry was born on July 3 in Florida.</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">The Early Years</div>
+                <div class="timeline-text">Jerry and Gloria found each other and began building a life together in North Florida's Union and Lafayette counties.</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">Rhodes Real Pit Bar-B-Que</div>
+                <div class="timeline-text">Together they opened Rhodes Real Pit Bar-B-Que — first in Mayo, then expanding to Lake Butler. Real pit barbecue, cooked the way it should be. The restaurants became community gathering places where everyone was welcome.</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">February 7, 2026</div>
+                <div class="timeline-text">Jerry passed away peacefully, surrounded by the love of his family.</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">February 8, 2026</div>
+                <div class="timeline-text">Gloria followed just one day later — reunited with Jerry.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Restaurants -->
+    <section class="section">
+        <h2>Rhodes Real Pit Bar-B-Que</h2>
+        <div class="section-divider"></div>
+        <p>
+            Jerry and Gloria Rhodes didn't just run restaurants — they built gathering places. Rhodes Real Pit Bar-B-Que
+            was the real deal: slow-smoked, pit-cooked barbecue in the heart of small-town Florida. The kind of place
+            where the whole county knew your name and the food tasted like home.
+        </p>
+
+        <div class="restaurant-card">
+            <h3>Rhodes Real Pit Bar-B-Que</h3>
+            <div class="location">📍 163 W Main Street, Mayo, FL 32066</div>
+            <p>The original location in Lafayette County, where it all began. A humble eatery specializing in authentic, traditional Southern barbecue.</p>
+        </div>
+
+        <div class="restaurant-card">
+            <h3>Rhodes Real Pit Bar-B-Que #2</h3>
+            <div class="location">📍 315 N Lake Avenue, Lake Butler, FL 32054</div>
+            <p>The second location in Union County's seat, bringing the same real pit flavor to the Lake Butler community.</p>
+        </div>
+    </section>
+
+    <!-- Photo Gallery -->
+    <section class="section">
+        <h2>Memories</h2>
+        <div class="section-divider"></div>
+        <p style="text-align: center; font-style: italic; color: #a89880;">
+            Photos coming soon — a collection of memories from family and friends.
+        </p>
+        <div class="gallery" id="gallery">
+            <!-- Photos will be added here -->
+        </div>
+    </section>
+
+    <!-- Quote -->
+    <section class="quote">
+        <blockquote>
+            "Some people leave footprints so deep in our hearts that we are forever changed."
+        </blockquote>
+    </section>
+
+    <!-- Family -->
+    <section class="section">
+        <h2>Family</h2>
+        <div class="section-divider"></div>
+        <p>
+            Jerry and Gloria's greatest legacy is their family. Their love, values, and spirit live on
+            through every generation they helped raise and every life they touched.
+        </p>
+        <p style="text-align: center; font-style: italic; color: #a89880;">
+            Family details will be added with the family's wishes.
+        </p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="memorial-footer">
+        <div class="ornament">✦</div>
+        <p>In Loving Memory of Jerry & Gloria Rhodes</p>
+        <p style="margin-top: 0.5rem;">Forever in our hearts</p>
+    </footer>
+
+</body>
+</html>
