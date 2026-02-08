@@ -30,3 +30,37 @@
 - Newspapers.com may have local coverage (paywall)
 - Kam's mother is one of: Karen, Kimberly, or Cindy
 - Michelle Abner linked to Kimberly Ann Rhodes and Jerry Dane Rhodes in public records
+
+## Family Details Update
+- **Karen** — Kam's mother (married Martin)
+- **Kimberly Ann** Rhodes — confirmed via public records
+- **Cindy** Rhodes
+- **Michelle** Rhodes (Abner) — born July 1, 1973 in Benson, AZ. Subject of newspaper roast contest article.
+- **Michael** Rhodes — passed early 2000s
+
+## Birthplaces
+- Gloria Marie Allen — born Fruitfield, Texas
+- Jerry Dane Rhodes — born Augusta, Maine
+
+## Places They Lived (so far)
+- Fruitfield, TX (Gloria's birth)
+- Augusta, ME (Jerry's birth)
+- Lake Butler, FL (Union County)
+- Mayo, FL (Lafayette County)
+- Fort White, FL (Columbia County)
+- Benson, AZ (Cochise County) — ~1973
+- Pelican Lake, WI (Oneida County)
+- San Diego, CA
+- Dallas, TX
+- Mesquite, TX
+
+## Research Lead
+- San Pedro Valley News-Sun, July 1973 — article about Michelle/roast contest
+- Behind paywall at Newspapers.com / Ancestry / GenealogyBank
+
+## Children's Birth Dates
+- Karen Rhodes — July 27, 1964 (Kam's mom, back to maiden name Rhodes)
+- Kimberly — March 8, 1968
+- Cindy — TBD
+- Michelle — July 1, 1973
+- Michael — TBD (passed early 2000s)
