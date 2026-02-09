@@ -1,7 +1,7 @@
 # Rhodes Memorial — Research Notes
 
 ## Key Facts
-- **Jerry Dane Rhodes** — born July 3, 1946, died February 7, 2026
+- **Jerry Dane Rhodes** — born July 3, 1946, died February 5, 2026
 - **Gloria Marie (Allen) Rhodes** — born January 16, 1945, died February 8, 2026
 - **Married:** August 23, 1963 (60th anniversary Aug 23, 2023)
 - **Gloria's maiden name:** Allen
