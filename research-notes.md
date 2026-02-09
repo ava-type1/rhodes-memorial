@@ -58,6 +58,19 @@
 - San Pedro Valley News-Sun, July 1973 — article about Michelle/roast contest
 - Behind paywall at Newspapers.com / Ancestry / GenealogyBank
 
+## Newspaper Articles Found (UF Digital Newspaper Library)
+1. **May 29, 1980 — Lake City Reporter** — Feature on Jerry building family home from chicken incubators in Fort White
+2. **Jan 11, 1983 — Lake City Reporter** — Councilman Jerry Rhodes volunteering to distribute surplus products
+3. **Aug 6, 1985 — Lake City Reporter** — Jerry qualifying as opponent in local election
+4. **Nov 4, 1983 — Lake City Reporter** — Bridal announcement: Rhodes-O'Sullivan (one of the daughters)
+5. **Nov 11, 1998 — Lake City Reporter** — Michelle Renee Rhodes & Scott Foster wedding announcement
+6. **Feb 3, 2011 — Mayo Free Press** — Rhodes Real Pit BBQ grand opening, all-you-can-eat buffet
+7. **Aug 5, 1997 — Lake City Reporter** — Help wanted ad for Rhodes Real Pit BBQ in Mayo
+
+## Still Searching For
+- Steve Morris & Michelle Rhodes (Shell) breaking her arm — Fort White area
+- Any photos from newspaper archives
+
 ## Children's Birth Dates
 - Karen Rhodes — July 27, 1964 (Kam's mom, back to maiden name Rhodes)
 - Kimberly — March 8, 1968
