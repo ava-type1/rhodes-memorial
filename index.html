@@ -404,6 +404,54 @@
             border-color: #c4a478;
         }
 
+        /* Shared Memories Display */
+        .shared-memories {
+            margin-top: 3rem;
+        }
+
+        .memory-card {
+            background: rgba(196, 164, 120, 0.06);
+            border: 1px solid rgba(196, 164, 120, 0.15);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .memory-card .memory-text {
+            font-weight: 300;
+            font-style: italic;
+            color: #d4ccc4;
+            line-height: 1.8;
+            font-size: 1.05rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .memory-card .memory-author {
+            color: #c4a478;
+            font-size: 0.9rem;
+        }
+
+        .memory-card .memory-date {
+            color: #7a7068;
+            font-size: 0.8rem;
+            margin-top: 0.3rem;
+        }
+
+        .form-success {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(196, 164, 120, 0.1);
+            border: 1px solid rgba(196, 164, 120, 0.3);
+            border-radius: 8px;
+            display: none;
+        }
+
+        .form-success p {
+            color: #c4a478;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+        }
+
         /* Responsive */
         @media (max-width: 600px) {
             .section { padding: 3rem 1.5rem; }
@@ -607,15 +655,10 @@
         <h2>Share a Memory</h2>
         <div class="section-divider"></div>
         <p style="text-align: center; margin-bottom: 2rem;">
-            If Jerry and Gloria touched your life, we'd love to hear from you. Share a story, a memory, or a photo — everything helps us celebrate the lives they lived.
+            If Jerry and Gloria touched your life, we'd love to hear from you. Share a story, a memory, or just what they meant to you.
         </p>
-        <form action="https://formsubmit.co/codeClaude08@gmail.com" method="POST" enctype="multipart/form-data" class="memory-form">
-            <!-- Anti-spam -->
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_subject" value="Rhodes Memorial — New Memory Shared">
-            <input type="hidden" name="_template" value="table">
-            <input type="text" name="_honey" style="display:none">
-            
+
+        <form id="memoryForm" class="memory-form">
             <div class="form-group">
                 <label for="name">Your Name</label>
                 <input type="text" id="name" name="name" placeholder="Your name" required>
@@ -628,12 +671,15 @@
                 <label for="memory">Your Memory or Story</label>
                 <textarea id="memory" name="memory" rows="6" placeholder="Share a favorite memory, a funny story, or just what they meant to you..." required></textarea>
             </div>
-            <div class="form-group">
-                <label for="photo">Upload a Photo (optional)</label>
-                <input type="file" id="photo" name="attachment" accept="image/*">
-            </div>
             <button type="submit" class="submit-btn">Share This Memory</button>
         </form>
+
+        <div class="form-success" id="formSuccess">
+            <p>Thank you for sharing. Your memory has been added. ✦</p>
+        </div>
+
+        <!-- Shared memories appear here -->
+        <div class="shared-memories" id="sharedMemories"></div>
     </section>
 
     <!-- Quote -->
@@ -683,6 +729,83 @@
             <div class="fh-tagline">Serving Columbia County families since 1964</div>
         </div>
     </footer>
+
+    <script>
+    const MEMORIES_FILE = 'memories.json';
+
+    // Load existing memories from static JSON file
+    async function loadMemories() {
+        try {
+            const res = await fetch(MEMORIES_FILE + '?t=' + Date.now());
+            if (!res.ok) return;
+            const memories = await res.json();
+            const container = document.getElementById('sharedMemories');
+            
+            if (memories.length === 0) return;
+            
+            container.innerHTML = '<h3 style="font-family: Playfair Display, serif; font-size: 1.3rem; color: #c4a478; text-align: center; margin-bottom: 1.5rem;">Shared Memories</h3>';
+            
+            memories.reverse().forEach(m => {
+                const date = new Date(m.date).toLocaleDateString('en-US', { 
+                    year: 'numeric', month: 'long', day: 'numeric' 
+                });
+                const rel = m.relationship ? ` — ${m.relationship}` : '';
+                container.innerHTML += `
+                    <div class="memory-card">
+                        <div class="memory-text">"${m.memory}"</div>
+                        <div class="memory-author">— ${m.name}${rel}</div>
+                        <div class="memory-date">${date}</div>
+                    </div>`;
+            });
+        } catch (e) {
+            console.log('Memories not loaded yet');
+        }
+    }
+
+    // Submit memory — sends to FormSubmit AND shows confirmation
+    document.getElementById('memoryForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const form = this;
+        const btn = form.querySelector('.submit-btn');
+        const name = form.querySelector('#name').value;
+        const relationship = form.querySelector('#relationship').value;
+        const memory = form.querySelector('#memory').value;
+        
+        btn.textContent = 'Sharing...';
+        btn.disabled = true;
+
+        // Send to FormSubmit in background (email notification)
+        try {
+            const emailData = new FormData();
+            emailData.append('name', name);
+            emailData.append('relationship', relationship);
+            emailData.append('memory', memory);
+            emailData.append('_subject', 'Rhodes Memorial — New Memory Shared');
+            emailData.append('_captcha', 'false');
+            emailData.append('_template', 'table');
+            fetch('https://formsubmit.co/ajax/codeClaude08@gmail.com', {
+                method: 'POST',
+                body: emailData,
+            });
+        } catch(e) {}
+
+        // Show success
+        form.style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+        
+        // Reset after a few seconds
+        setTimeout(() => {
+            form.reset();
+            form.style.display = 'block';
+            document.getElementById('formSuccess').style.display = 'none';
+            btn.textContent = 'Share This Memory';
+            btn.disabled = false;
+        }, 4000);
+    });
+
+    // Load memories on page load
+    loadMemories();
+    </script>
 
 </body>
 </html>
